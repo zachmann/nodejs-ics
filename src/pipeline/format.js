@@ -60,6 +60,8 @@ export function formatEvent(attributes = {}) {
     alarms,
     recurrenceRule,
     exclusionDates,
+    exclusionDatesInputType,
+    exclusionDatesOutputType,
     busyStatus,
     transp,
     classification,
@@ -104,7 +106,7 @@ export function formatEvent(attributes = {}) {
     })
   }
   icsFormat += recurrenceRule ? foldLine(`RRULE:${encodeNewLines(recurrenceRule)}`) + '\r\n' : ''
-  icsFormat += exclusionDates ? foldLine(`EXDATE:${encodeNewLines(exclusionDates.map((a) => formatDate(a)).join(','))}`) + '\r\n': ''
+  icsFormat += exclusionDates ? foldLine(`EXDATE:${encodeNewLines(exclusionDates.map((a) => formatDate(a, exclusionDatesOutputType, exclusionDatesInputType)).join(','))}`) + '\r\n': ''
   icsFormat += duration ? foldLine(`DURATION:${formatDuration(duration)}`) + '\r\n' : ''
   if (alarms) {
     alarms.forEach((alarm) => {

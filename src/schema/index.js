@@ -110,6 +110,8 @@ const eventShape = {
   created: dateTimeSchema({ required: false }),
   lastModified: dateTimeSchema({ required: false }),
   exclusionDates: yup.array().of(dateTimeSchema({ required: true })),
+  exclusionDatesInputType: yup.string().matches(/^(utc|local)$/),
+  exclusionDatesOutputType: yup.string().matches(/^(utc|local)$/),
   htmlContent: yup.string()
 }
 
