@@ -113,6 +113,8 @@ export type EventAttributes = {
   method?: HeaderAttributes['method'];
   recurrenceRule?: string;
   exclusionDates?: DateTime[];
+  exclusionDatesInputType?: 'local' | 'utc';
+  exclusionDatesOutputType?: 'local' | 'utc';
   sequence?: number;
   calName?: HeaderAttributes['calName'];
   classification?: classificationType;
